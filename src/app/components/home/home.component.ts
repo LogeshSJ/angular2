@@ -36,7 +36,7 @@ import { StorageService } from 'src/app/services/storage.service';
   selector: 'app-home',
   templateUrl: './home.component.html',
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent  {
   products: Product[] = [];
 
   constructor(
@@ -44,8 +44,7 @@ export class HomeComponent implements OnInit {
     private productService: ProductserviceService,
     private cartService: CartService,
     private storageService: StorageService
-  ) {}
-  ngOnInit(): void {
+  ) {
     this.productService.getAllProducts().subscribe({
       next: (data: Product[]) => {
         // console.log(data);
@@ -61,6 +60,22 @@ export class HomeComponent implements OnInit {
       },
     });
   }
+  // ngOnInit(): void {
+  //   this.productService.getAllProducts().subscribe({
+  //     next: (data: Product[]) => {
+  //       // console.log(data);
+  //       this.products = data;
+  //       this.productService.saveProducts(data);
+  //     },
+  //     complete: () => {
+  //       console.log('completed');
+  //     },
+  //     error: (error: Error) => {
+  //       console.log('Message:', error.message);
+  //       console.log('Name:', error.name);
+  //     },
+  //   });
+  // }
   addToCart(id: number): void {
     this.cartService.addToCart(id);
   }
