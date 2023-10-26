@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
   <div class="row ">
     <div
       *ngFor="let p of Products"
@@ -12,6 +12,26 @@
       <p class="fs-5 my-1 mt-2 text-center">{{ p.title }}</p>
       <p class="fs-5 mb-1 text-center">₹{{ p.price }}</p>
       <button class="btn btn-success"(click)="addToCart(p.id)">Add to Cart</button>
+    </div>
+  </div>
+</div> -->
+
+<div class="container-fluid">
+  <div class="row">
+    <div
+      *ngFor="let product of products"
+      class="col-3 border rounded p-2 bg-secondary-subtle border-primary-subtle mx-5 my-4"
+    >
+      <img
+        src="{{ product.image }}"
+        alt="image"
+        style="min-width: 100px; height: 100px"
+      />
+      <p class="fs-5 my-1 mt-2 text-center">{{ product.title }}</p>
+      <p class="fs-4 my-1 mb-2 text-center">₹ {{ product.price }}</p>
+      <div class="btn btn-warning" (click)="addToCart(product.id)">
+        Add to Cart
+      </div>
     </div>
   </div>
 </div>
